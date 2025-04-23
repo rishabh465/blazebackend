@@ -16,7 +16,13 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: ["http://localhost", "http://localhost:80", "http://localhost:3000"],
+    origin: [
+        "http://localhost", 
+        "http://localhost:80", 
+        "http://localhost:3000",
+        "https://blaze-f.onrender.com",
+        process.env.FRONTEND_URL
+    ].filter(Boolean),
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
